@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ekklesia_admin
 
 Simple Dashboard Admin App built using Angular 7 and Material 2.
