@@ -1,0 +1,90 @@
+<div class="mb-20">
+  <div>
+    <h3 class="title-section">Enseñanzas</h3>
+  </div>
+  <form *ngIf="teaching$ | async as teaching" [formGroup]="teachingFormGroup">
+    <mat-horizontal-stepper labelPosition="bottom" formArrayName="formArray" #stepper>
+        <mat-step formGroupName="0" [stepControl]="formArray?.get([0])">
+            <ng-template matStepLabel>Información General</ng-template>
+            <app-file-upload folder="preachings" 
+                     [extension]="fileExtension"
+                     fileType="image"
+                     [link]="teaching?.banner"     
+                     (setFilePath)="setFilePath($event)">
+            </app-file-upload>
+            <mat-form-field class="field">
+                <input matInput placeholder="Titulo" formControlName="title" required>
+            </mat-form-field>
+            <mat-form-field class="field">
+              <input matInput placeholder="Autor" formControlName="subtitle" required>
+            </mat-form-field>
+            <div>
+              <button mat-raised-button matStepperNext color="primary">Siguiente</button>
+            </div>
+          </mat-step>
+          <mat-step formGroupName="1" [stepControl]="formArray?.get([1])" optional>
+            <ng-template matStepLabel>Video</ng-template>
+            <mat-form-field class="field">
+                <input matInput placeholder="Youtube Link* Ej: https://www.youtube.com/watch?v=CiUrOkMySfo" formControlName="link">
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperPrevious>Atrás</button>
+                <button mat-raised-button matStepperNext color="primary">Siguiente</button>
+            </div>
+          </mat-step>
+          <mat-step formGroupName="2" [stepControl]="formArray?.get([2])" optional>
+            <ng-template matStepLabel>Audio</ng-template>
+            <app-file-upload folder="ecast" 
+                         [extension]="fileAudioExtension"
+                         [link]="teaching?.audio?.ecastLink" 
+                         fileType="audio"
+                         (setFilePath)="setFileAudioPath($event)">
+            </app-file-upload>
+            <div>
+              <button mat-button matStepperPrevious>Atrás</button>
+              <button mat-raised-button matStepperNext color="primary">Siguiente</button>
+            </div>
+          </mat-step>
+          <mat-step formGroupName="3" [stepControl]="formArray?.get([3])" optional>
+              <ng-template matStepLabel>Lectura</ng-template>
+              <p class="section-title">Versículo Bíblico</p>
+              <mat-form-field class="field">
+                <input matInput placeholder="Pasaje" formControlName="passage">
+              </mat-form-field>
+              <mat-form-field class="field">
+                <input matInput placeholder="Verso" formControlName="verse">
+              </mat-form-field>
+
+              <p class="section-title">Contenido</p>
+              <app-paragraph formControlName="contents"></app-paragraph>
+              <p class="section-title">Oración</p>
+              <mat-form-field class="field">
+                    <textarea matInput 
+                              cdkTextareaAutosize cdkAutosizeMinRows="5" 
+                              cdkAutosizeMaxRows="10" formControlName="praying"></textarea>
+              </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Atrás</button>
+                  <button mat-raised-button matStepperNext color="primary">Siguiente</button>
+                </div> 
+          </mat-step>
+          <mat-step formGroupName="4" [stepControl]="formArray?.get([4])">
+              <ng-template matStepLabel>Listo</ng-template>
+              <mat-form-field>
+                <input matInput [matDatepicker]="picker" 
+                       formControlName="createdDate" 
+                       placeholder="Fecha de Creación*">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <div>
+                  <button mat-button matStepperPrevious>Cancelar</button>
+                  <button mat-raised-button color="primary" class="w-100" (click)="save(teachingFormGroup)">
+                    <mat-icon aria-label="Guardar Ekklenews">save</mat-icon>
+                    Guardar
+                  </button>
+              </div>
+          </mat-step>
+      </mat-horizontal-stepper>    
+  </form>
+</div>

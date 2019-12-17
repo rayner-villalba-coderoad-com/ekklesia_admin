@@ -17,6 +17,14 @@ const routes: Routes = [
                 loadChildren: './dashboard/dashboard.module#DashboardModule'
             },
             {
+                path: 'ekklenews',
+                loadChildren: './ekklenews/ekklenews.module#EkklenewsModule'
+            },
+            {
+                path: 'teachings',
+                loadChildren: './teachings/teachings.module#TeachingsModule'
+            },
+            {
                 path: 'charts',
                 loadChildren: './charts/charts.module#ChartsModule'
             },

@@ -1,0 +1,86 @@
+<div class="content ekklenews-page" *ngIf="ekklenew$ | async as ekklenew"> 
+  <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+    <div fxFlexFill>
+      <button mat-raised-button color="primary" class="w-100" (click)="goBack()">
+        <mat-icon aria-label="Guardar Ekklenews">arrow_back</mat-icon>
+      </button>
+    </div>
+  </div>
+  <h3 *ngIf="!ekklenew.id">Nuevo Ekklenews</h3>
+  <div class="mat-elevation-z8 ekklenews-content">
+    <form [formGroup]="ekklenewForm" fxFlex>
+       <app-file-upload folder="ekklenews" 
+                       [extension]="fileExtension"
+                       fileType="image"
+                       [link]="ekklenew?.banner" 
+                       (setFilePath)="setFilePath($event)">
+      </app-file-upload> 
+      <div fxFlex fxlayout="row" fxlayout.lt-md="column">
+        <div fxFlexFill>
+          <mat-form-field class="field">
+            <input matInput placeholder="Título*" formControlName="title">
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxFlex fxlayout="row" fxlayout.lt-md="column">
+        <div fxFlexFill>
+          <mat-form-field class="field">
+            <input matInput placeholder="Subtítulo" formControlName="subtitle">
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+        <div fxFlexFill>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" 
+                   formControlName="eventDate" 
+                   placeholder="Fecha del Evento*">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <div class="container-types">
+            <mat-radio-group aria-label="Tipo de Ekklenews" class="field" formControlName="type">
+              <mat-radio-button value="video">Video</mat-radio-button>
+              <mat-radio-button value="read">Lectura</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+            <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+                <div fxFlexFill [hidden]="ekklenewForm.controls.type.value == 'video'">
+                    <mat-form-field class="field">
+                        <textarea matInput placeholder="Descripción*" 
+                                  cdkTextareaAutosize cdkAutosizeMinRows="5" 
+                                  cdkAutosizeMaxRows="10" formControlName="description"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div fxFlex fxlayout="row" fxlayout.lt-md="column" [hidden]="ekklenewForm.controls.type.value == 'video'">
+                <div fxFlexFill>
+                    <mat-form-field class="field">
+                        <input matInput placeholder="Contacto" formControlName="contact">
+                    </mat-form-field>
+                </div>
+            </div>
+            <app-paragraph></app-paragraph>
+            <div fxFlex fxlayout="row" fxlayout.lt-md="column" [hidden]="ekklenewForm.controls.type.value == 'read'">
+                <div fxFlexFill>
+                    <mat-form-field class="field">
+                        <input matInput placeholder="Youtube Link* Ej: https://www.youtube.com/watch?v=CiUrOkMySfo" formControlName="link">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+                <div fxFlexFill>
+                    <button mat-raised-button color="primary" class="w-100" (click)="save(ekklenewForm)" 
+                            [disabled]="!ekklenewForm.valid || !ekklenew.banner">
+                    <mat-icon aria-label="Guardar Ekklenews">save</mat-icon>
+                    Guardar</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

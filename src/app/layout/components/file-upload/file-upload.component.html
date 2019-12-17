@@ -1,0 +1,46 @@
+<div class="dropzone" 
+     appDropZone (hovered)="toggleHover($event)" 
+     (dropped)="startUpload($event)" 
+     [class.hovering]="isHovering"
+     *ngIf="!link && (percentage | async) <= 0">
+
+  <h3>Sube tu Archivo</h3>
+  <p>Arrastra tu Archivo</p>
+  <div class="file">
+    <label class="file-label">
+   <input class="file-input" 
+          type="file" 
+          accept="{{extension}}"
+          (change)="startUpload($event.target.files)">
+     <span class="file-cta">
+       <span class="file-icon">
+         <i class="fa fa-upload"></i>
+       </span>
+       <span class="file-label">
+         o escoge un archivo...
+       </span>
+     </span>
+   </label>
+  </div>
+</div>
+
+<div *ngIf="!link && percentage | async as pct">
+  <mat-progress-spinner [value]="pct" color="primary"></mat-progress-spinner>
+</div>
+
+<div *ngIf="link && fileType==='image'" class="media-container">
+  <img [src]="link" />
+  <button  mat-button class="delete-button" (click)="confirmDelete($event, fileType)">
+    Eliminar Imagen
+    <mat-icon aria-label="Borrar">delete</mat-icon>
+  </button>
+</div>
+<div *ngIf="link && fileType==='audio'" class="media-container">
+    <audio controls [src]="link">
+      Tu navegador no soporta el elemento de <code>audio</code>.
+    </audio>
+    <button  mat-button class="delete-button" (click)="confirmDelete($event, fileType)">
+      Eliminar Audio
+      <mat-icon aria-label="Borrar">delete</mat-icon>
+    </button>
+  </div>

@@ -1,38 +1,34 @@
 <div class="login-page">
     <div class="content">
-        <!-- <h1 class="app-name">Sb Admin Material</h1> -->
-        <form class="login-form" fxFlex  >
+        <form [formGroup]="onLoginForm" class="login-form" fxFlex>
             <div class="text-center">
-                <h2 class="app-name">Sb Admin Material</h2>
+                <img src="assets/images/logo.png" alt="">
+                <h2 class="app-name">Ekklesía</h2>
             </div>
-            <div fxFlex  fxlayout="row" fxlayout.lt-md="column">
+            <div fxFlex fxlayout="row" fxlayout.lt-md="column">
                 <div fxFlexFill>
                     <mat-form-field class="w-100">
-                        <input matInput placeholder="Email">
+                        <input matInput placeholder="Correo Electrónico" formControlName="email">
                     </mat-form-field>
                 </div>
             </div>
-            <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
+            <div fxFlex fxLayout="row" fxLayout.lt-md="column">
                 <div fxFlexFill>
                     <mat-form-field class="w-100">
-                        <input matInput type="password" placeholder="Password">
+                        <input matInput type="password" placeholder="Contraseña" formControlName="password">
                     </mat-form-field>
                 </div>
             </div>
-            <div fxFlex  fxLayout="row" fxLayout.lt-md="column" style="margin: 20px 0 30px 0">
-                <div fxFlex>
-                    <mat-checkbox color="primary">Remember Me</mat-checkbox>
-                </div>
-                <div fxFlex  fxLayoutAlign="end">
-                    <a href="javascript:void(0)">Forget Password</a>
+            <div fxFlex fxLayout="row" fxLayout.lt-md="column" style="margin: 20px 0 30px 0">
+                <div fxFlex fxLayoutAlign="end">
+                    <a (click)="forgotPassword()">Olvide mi Contraseña</a>
                 </div>
             </div>
-            <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
+            <div fxFlex fxLayout="row" fxLayout.lt-md="column">
                 <div fxFlexFill>
-                    <button mat-raised-button color="primary" class="w-100" (click)="onLogin()">Login</button>
+                    <button mat-raised-button color="primary" class="w-100" (click)="login(onLoginForm)">Ingresar</button>
                 </div>
             </div>
-
         </form>
     </div>
 </div>

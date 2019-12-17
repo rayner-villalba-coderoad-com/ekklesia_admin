@@ -1,8 +1,16 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "outDir": "../out-tsc/app",
-    "types": []
+    "types": [],
+    "paths": {
+      "@env/*": ["environments/*"], // Set environment alias
+      "@shared/*": ["app/shared/*"],
+      "@services/*": ["app/services/*"],
+      "@store/*": ["app/state/*"],
+      "@components/*": ["app/layout/components/*"]
+    }
   },
   "exclude": [
     "test.ts",

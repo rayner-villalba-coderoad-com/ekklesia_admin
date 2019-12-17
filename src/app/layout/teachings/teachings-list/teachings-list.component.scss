@@ -1,0 +1,29 @@
+.search-field {
+  width: 30%;
+}
+.title-section {
+  text-align: center;
+  margin: 0;
+} 
+
+.gallery {
+  display: flex;
+  width: 100%;
+  margin: 1rem auto;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+figure {
+  width: 33%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+figure img {
+  width: 100%;
+}
+figure figcaption {
+  text-align: center;
+  padding: 8px 4px;
+}

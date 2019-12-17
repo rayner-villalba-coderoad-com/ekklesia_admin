@@ -1,0 +1,24 @@
+<div class="mb-20">
+  <h2 class="title-section">Enseñanzas</h2>
+  <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+    <div fxFlex>
+      <mat-form-field class="search-field">
+        <input matInput (keyup)="search($event.target.value)" 
+               debounce="500" placeholder="Buscar">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary" (click)="add()">
+        <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+        Nuevo
+      </button>
+  </div>
+  
+  <div class="gallery" *ngIf="preachings$ | async as preachings">
+    <figure *ngFor="let preaching of preachings" 
+            (click)="goTeachingDetail(preaching)">
+      <img [src]="preaching.banner">
+      <!-- <figcaption>Julie's Rabbit Ears</figcaption> -->
+    </figure>
+  </div>    
+</div>

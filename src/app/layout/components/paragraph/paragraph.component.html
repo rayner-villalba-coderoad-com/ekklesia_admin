@@ -1,0 +1,32 @@
+<div class="content" *ngFor="let paragraph of paragraphs; let i = index">
+  <p>Párrafo {{i + 1}}</p>
+  <mat-form-field class="field">
+    <input matInput placeholder="Titulo" 
+    (keyup)="writeParagraph('title',i, $event.target.value)" 
+    debounce="500">
+  </mat-form-field>
+  <mat-form-field class="field">
+    <input matInput placeholder="Subtitulo" 
+    (keyup)="writeParagraph('subtitle',i, $event.target.value)" 
+    debounce="500">
+  </mat-form-field>
+  
+  <mat-form-field class="field">
+    <textarea matInput placeholder="Párrafo" 
+      cdkTextareaAutosize cdkAutosizeMinRows="3" 
+      cdkAutosizeMaxRows="3" 
+      (keyup)="writeParagraph('content', i, $event.target.value)" 
+      debounce="500"
+      formControlName="content"></textarea>
+  </mat-form-field>
+  <button mat-raised-button class="remove-item" (click)="removeParagraph($event, i)">
+    Eliminar Párrafo
+    <mat-icon aria-label="Guardar Ekklenews">remove</mat-icon>
+  </button>
+</div>
+<div class="new-paragraph">
+  <button mat-raised-button color="primary" (click)="addParagraph($event)">
+    Agregar Párrafo
+    <mat-icon aria-label="Guardar Ekklenews">add</mat-icon>
+  </button>
+</div>

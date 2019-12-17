@@ -1,0 +1,24 @@
+.ekklenews-page {
+  .ekklenews-content {
+    padding: 2rem;
+    form {
+      img {
+        width: 100%;
+        padding-bottom: 2rem;
+      }
+
+      .field {
+        width: 80%;
+      }
+      
+      .container-types {
+        display: inline-block;
+        
+        mat-radio-button {
+        padding-left: 1rem;
+      }
+      }
+      
+    }
+  }
+}

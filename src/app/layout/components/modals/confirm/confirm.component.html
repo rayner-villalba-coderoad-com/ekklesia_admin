@@ -1,0 +1,6 @@
+<h2 mat-dialog-title>{{modalTitle}}</h2>
+<mat-dialog-content>{{modalContent}}</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>{{modalNegativeButton}}</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="true">{{modalPositiveButton}}</button>
+</mat-dialog-actions>
