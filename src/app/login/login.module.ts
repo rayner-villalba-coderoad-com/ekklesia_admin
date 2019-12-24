@@ -18,6 +18,6 @@ import { LoginComponent } from './login.component';
     MatButtonModule,
     FlexLayoutModule.withConfig({ addFlexToParent: false })
   ],
-  declarations: [LoginComponent]
+  declarations: [LoginComponent],
 })
 export class LoginModule {}

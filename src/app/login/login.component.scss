@@ -4,24 +4,29 @@
   justify-content: center;
   height: 100%;
   position: relative;
+  background: url('assets/images/background_2.jpg');
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+
   .content {
     z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     img {
-      width: 30%;
-      padding: 1rem;
+      width: 16%;
+      padding: 0.5rem;
     }
     .app-name {
       margin-top: 0px;
       padding-bottom: 10px;
-      font-size: 32px;
+      font-size: 1.8rem;
     }
     .login-form {
-      padding: 40px;
+      padding: 2rem;
       background: #fff;
-      width: 500px;
+      width: 400px;
       box-shadow: 0 0 10px #ddd;
       input:-webkit-autofill {
         -webkit-box-shadow: 0 0 0 30px white inset;
@@ -29,24 +34,24 @@
     }
   }
 
-  &:after {
-    content: '';
-    background: #fff;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 50%;
-    right: 0;
-  }
-  &:before {
-    content: '';
-    background: #3f51b5;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    bottom: 0;
-    right: 0;
-  }
+  // &:after {
+  //   content: '';
+  //   background: #fff;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   bottom: 50%;
+  //   right: 0;
+  // }
+  // &:before {
+  //   content: '';
+  //   background: #3f51b5;
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 0;
+  //   bottom: 0;
+  //   right: 0;
+  // }
 }
 .text-center {
   text-align: center;

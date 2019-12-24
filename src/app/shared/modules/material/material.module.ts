@@ -26,6 +26,7 @@ import {
   MatProgressSpinnerModule
 } from '@angular/material';
 
+import { OverlayModule } from '@angular/cdk/overlay';
 @NgModule({
   imports: [
     MatStepperModule,
@@ -50,7 +51,8 @@ import {
     MatToolbarModule,
     MatRadioModule,
     MatButtonToggleModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    OverlayModule
   ],
   exports: [
     MatStepperModule,
@@ -74,7 +76,8 @@ import {
     MatToolbarModule,
     MatRadioModule,
     MatButtonToggleModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    OverlayModule
   ]
 })
 export class MaterialModule {}

@@ -15,6 +15,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '@env/environment';
 import { StateModule } from '@store/state.module';
 
+import { MatSpinner } from '@angular/material';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -36,6 +38,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
+    MatProgressSpinnerModule,
     OverlayModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -52,6 +55,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     })
   ],
   providers: [AngularFireDatabase],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ MatSpinner ],
 })
 export class AppModule {}

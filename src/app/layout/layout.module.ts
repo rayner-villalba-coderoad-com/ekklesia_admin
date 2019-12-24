@@ -19,7 +19,7 @@ import { MaterialModule } from '@shared/modules/material/material.module';
 import { ParagraphComponent } from './components/paragraph/paragraph.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { ConfirmComponent} from './components/modals/confirm/confirm.component';
-import { MAT_DATLOCALE_IDE_LOCALE } from '@angular/core';
+
 @NgModule({
     imports: [
         CommonModule,
