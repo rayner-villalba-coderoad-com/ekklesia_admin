@@ -36,7 +36,7 @@
         "@ngx-translate/http-loader": "4.0.0",
         "@types/google-apps-script": "0.0.56",
         "angularfire2": "^5.1.2",
-        "chart.js": "2.7.3",
+        "chart.js": "2.9.4",
         "core-js": "2.5.7",
         "firebase": "^5.9.0",
         "hammerjs": "2.0.8",
